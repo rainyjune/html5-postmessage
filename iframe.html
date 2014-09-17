@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Iframe</title>
+  </head>
+  <body>
+    <p>Content in the iframe page.</p>
+    <script>
+      window.onload = initAll;
+      function initAll() {
+        console.log("init iframe");
+        window.addEventListener("message", function (e) {
+          console.log("e", e);
+          e.source.postMessage("Hello from iframe page", "*");
+        });
+      }
+      
+    </script>
+  </body>
+</html>
